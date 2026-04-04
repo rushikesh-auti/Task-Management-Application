@@ -28,7 +28,7 @@ This application provides a simple and effective way to organize daily tasks. It
 ```
 src/
 
-├── components/
+├── Components/
 │   ├── AddTodo.jsx
 │   ├── AppName.jsx
 │   ├── AppName.module.css
@@ -37,7 +37,7 @@ src/
 │   ├── WelcomeMessage.jsx
 │   └── WelcomeMessage.module.css
 │
-├── store/
+├── Store/
 │   └── todo-items-store.jsx
 │
 ├── App.jsx
