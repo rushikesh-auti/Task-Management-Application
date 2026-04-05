@@ -45,9 +45,6 @@ src/
 └── App.css
 ```
 
-## Preview
-<img width="1896" height="899" alt="Screenshot 2026-04-04 193316" src="https://github.com/user-attachments/assets/064e56e7-f3ea-4349-b2f2-e12873490c08" />
-
 ## Getting Started
 
 ### Prerequisites
@@ -86,6 +83,9 @@ npm run dev
 Open your browser and visit:
 
 http://localhost:5173
+
+## Preview
+<img width="1896" height="899" alt="Screenshot 2026-04-04 193316" src="https://github.com/user-attachments/assets/064e56e7-f3ea-4349-b2f2-e12873490c08" />
 
 ## Usage
 
