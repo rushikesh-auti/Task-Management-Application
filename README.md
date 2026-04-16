@@ -27,7 +27,6 @@ This application provides a simple and effective way to organize daily tasks. It
 
 ```
 src/
-
 ├── Components/
 │   ├── AddTodo.jsx
 │   ├── AppName.jsx
