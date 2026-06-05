@@ -20,8 +20,7 @@ This application provides a simple and effective way to organize daily tasks. It
 - ReactJS
 - JavaScript 
 - Bootstrap 5
-- React Context API
-- useReducer Hook
+- Context API
 
 ## Project Structure
 
