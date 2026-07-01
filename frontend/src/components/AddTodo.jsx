@@ -1,5 +1,5 @@
 import { useRef, useContext } from "react";
-import { TodoItemsContext } from "../../Store/todo-items-store.jsx";
+import { TodoItemsContext } from "../store/todo-items-store";
 
 function AddTodo() {
   const { addNewItem } = useContext(TodoItemsContext);
@@ -33,11 +33,7 @@ function AddTodo() {
       </div>
 
       <div className="col-4">
-        <input
-          type="date"
-          ref={dateRef}
-          className="form-control"
-        />
+        <input type="date" ref={dateRef} className="form-control" />
       </div>
 
       <div className="col-2">

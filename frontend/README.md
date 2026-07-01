@@ -18,7 +18,7 @@ This application provides a simple and effective way to organize daily tasks. It
 ## Technologies
 
 - ReactJS
-- JavaScript 
+- JavaScript
 - Bootstrap 5
 - Context API
 
@@ -26,7 +26,7 @@ This application provides a simple and effective way to organize daily tasks. It
 
 ```
 src/
-├── Components/
+├── components/
 │   ├── AddTodo.jsx
 │   ├── AppName.jsx
 │   ├── AppName.module.css
@@ -35,7 +35,7 @@ src/
 │   ├── WelcomeMessage.jsx
 │   └── WelcomeMessage.module.css
 │
-├── Store/
+├── store/
 │   └── todo-items-store.jsx
 │
 ├── App.jsx
@@ -83,6 +83,7 @@ Open your browser and visit:
 http://localhost:5173
 
 ## Preview
+
 <img width="1896" height="899" alt="Screenshot 2026-04-04 193316" src="https://github.com/user-attachments/assets/064e56e7-f3ea-4349-b2f2-e12873490c08" />
 
 ## Usage

@@ -1,8 +1,8 @@
-import AppName from "./Component/AppName.jsx";
-import AddTodo from "./Component/AddTodo.jsx";
-import TodoItems from "./Component/TodoItems.jsx";
-import WelcomeMessage from "./Component/WelcomeMessage.jsx";
-import TodoItemsContextProvider from "../Store/todo-items-store.jsx";
+import AppName from "./components/AppName.jsx";
+import AddTodo from "./components/AddTodo.jsx";
+import TodoItems from "./components/TodoItems.jsx";
+import WelcomeMessage from "./components/WelcomeMessage.jsx";
+import TodoItemsContextProvider from "./store/todo-items-store.jsx";
 import "./App.css";
 
 function App() {
