@@ -4,7 +4,7 @@ import TodoItems from "./components/TodoItems.jsx";
 import WelcomeMessage from "./components/WelcomeMessage.jsx";
 import "./App.css";
 import { useState } from "react";
-// import { addItemToServer } from "./services/itemService.js";
+import { addItemToServer } from "./services/itemService.js";
 
 function App() {
   const [todoItems, setTodoItems] = useState([]);
@@ -12,11 +12,11 @@ function App() {
   const handleNewItem = async (itemName, itemDueDate) => {
     console.log(`New Item Added:${itemName} Date:${itemDueDate}`);
 
-    // const serverItem = await addItemToServer(itemName,itemDueDate);
+    // const item = await addItemToServer(itemName, itemDueDate);
    
     const newTodoItems = [
       ...todoItems,
-      // serverItem,
+      item,
     ];
     setTodoItems(newTodoItems);
   };
