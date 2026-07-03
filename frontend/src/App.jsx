@@ -2,19 +2,39 @@ import AppName from "./components/AppName.jsx";
 import AddTodo from "./components/AddTodo.jsx";
 import TodoItems from "./components/TodoItems.jsx";
 import WelcomeMessage from "./components/WelcomeMessage.jsx";
-import TodoItemsContextProvider from "./store/todo-items-store.jsx";
 import "./App.css";
+import { useState } from "react";
+// import { addItemToServer } from "./services/itemService.js";
 
 function App() {
+  const [todoItems, setTodoItems] = useState([]);
+
+  const handleNewItem = async (itemName, itemDueDate) => {
+    console.log(`New Item Added:${itemName} Date:${itemDueDate}`);
+
+    // const serverItem = await addItemToServer(itemName,itemDueDate);
+   
+    const newTodoItems = [
+      ...todoItems,
+      // serverItem,
+    ];
+    setTodoItems(newTodoItems);
+  };
+
+  const handleDeleteItem = (todoItemsName) => {
+    const newTodoItems = todoItems.filter(
+      (item) => item.name !== todoItemsName,
+    );
+    setTodoItems(newTodoItems);
+  };
+
   return (
-    <TodoItemsContextProvider>
       <div className="container text-center mt-4">
         <AppName />
-        <AddTodo />
+        <AddTodo onNewItem={handleNewItem} />
         <WelcomeMessage />
-        <TodoItems />
+        <TodoItems todoItems={todoItems} onDeleteClick={handleDeleteItem} />
       </div>
-    </TodoItemsContextProvider>
   );
 }
 
