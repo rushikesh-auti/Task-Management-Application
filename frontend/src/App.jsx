@@ -12,7 +12,7 @@ function App() {
   const handleNewItem = async (itemName, itemDueDate) => {
     console.log(`New Item Added:${itemName} Date:${itemDueDate}`);
 
-    // const item = await addItemToServer(itemName, itemDueDate);
+    const item = await addItemToServer(itemName, itemDueDate);
    
     const newTodoItems = [
       ...todoItems,
