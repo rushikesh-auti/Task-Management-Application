@@ -52,9 +52,7 @@ export const deleteItemFromServer = async (id) => {
   if (!response.ok) {
     throw new Error("Failed to delete todo.");
   }
-
-  const result = await response.json();
-  return result.data._id;
+  return id;
 };
 
 // Convert Backend Data to Frontend Data
