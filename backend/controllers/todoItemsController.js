@@ -28,3 +28,23 @@ exports.createTodoItem = async (req, res) => {
     });
   }
 };
+
+exports.getTodoItem = async (req, res) => {
+  const todoItems = await TodoItem.find();
+  res.json(todoItems);
+}
+
+exports.deleteTodoItem = async (req, res) => {
+  const { id } = req.params;
+  await TodoItem.findByIdAndDelete(id);
+  res.status(204).json({ _id: id });
+}
+
+exports.markCompleted = async (req, res) => {
+  const { id } = req.params;
+  const todoItem = await TodoItem.findById(id);
+  todoItem.completed = true;
+  await todoItem.save();
+  res.json(todoItems);
+}
+
