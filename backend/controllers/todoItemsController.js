@@ -30,21 +30,72 @@ exports.createTodoItem = async (req, res) => {
 };
 
 exports.getTodoItem = async (req, res) => {
-  const todoItems = await TodoItem.find();
-  res.json(todoItems);
-}
+  try {
+    const todoItems = await TodoItem.find();
+
+    res.status(200).json({
+      success: true,
+      count: todoItems.length,
+      data: todoItems,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
 
 exports.deleteTodoItem = async (req, res) => {
-  const { id } = req.params;
-  await TodoItem.findByIdAndDelete(id);
-  res.status(204).json({ _id: id });
-}
+  try {
+    const { id } = req.params;
+    const todoItem = await TodoItem.findById(id);
+
+    if (!todoItem) {
+      return res.status(404).json({
+        success: false,
+        message: "Todo not found.",
+      });
+    }
+
+    await TodoItem.findByIdAndDelete(id);
+
+    res.status(200).json({
+      success: true,
+      message: "Todo deleted successfully.",
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
 
 exports.markCompleted = async (req, res) => {
-  const { id } = req.params;
-  const todoItem = await TodoItem.findById(id);
-  todoItem.completed = true;
-  await todoItem.save();
-  res.json(todoItems);
-}
+  try {
+    const { id } = req.params;
+    const todoItem = await TodoItem.findById(id);
 
+    if (!todoItem) {
+      return res.status(404).json({
+        success: false,
+        message: "Todo not found.",
+      });
+    }
+
+    todoItem.completed = true;
+    await todoItem.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Todo marked as completed.",
+      data: todoItem,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
