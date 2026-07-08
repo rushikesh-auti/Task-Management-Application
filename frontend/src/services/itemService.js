@@ -30,6 +30,7 @@ export const addItemToServer = async (task, date) => {
   const result = await response.json();
   return mapServerItemToLocalItem(result.data);
 };
+//
 
 export const markItemCompletedOnServer = async (id) => {
   const response = await fetch(`${API_URL}/${id}/completed`, {
@@ -37,7 +38,7 @@ export const markItemCompletedOnServer = async (id) => {
   });
 
   if (!response.ok) {
-    throw new Error("Failed to mark todo as completed.");
+    throw new Error("Failed to update todo status.");
   }
 
   const result = await response.json();
@@ -52,6 +53,7 @@ export const deleteItemFromServer = async (id) => {
   if (!response.ok) {
     throw new Error("Failed to delete todo.");
   }
+
   return id;
 };
 

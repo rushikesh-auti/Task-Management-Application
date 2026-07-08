@@ -1,6 +1,11 @@
 import TodoItem from "./TodoItem";
 
-function TodoItems({ todoItems, onDeleteClick }) {
+function TodoItems({
+  todoItems,
+  onDeleteClick,
+  onCompleteClick,
+  // onUpdateClick,
+}) {
   return (
     <div className="mx-auto mt-8 flex w-full max-w-5xl flex-col gap-4">
       {todoItems.map((item) => (
@@ -11,6 +16,8 @@ function TodoItems({ todoItems, onDeleteClick }) {
           todoDate={item.dueDate}
           completed={item.completed}
           onDeleteClick={onDeleteClick}
+          onCompleteClick={onCompleteClick}
+          onUpdateClick={onUpdateClick}
         />
       ))}
     </div>

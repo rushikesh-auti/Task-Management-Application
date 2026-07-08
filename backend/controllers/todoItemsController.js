@@ -31,7 +31,7 @@ exports.createTodoItem = async (req, res) => {
 
 exports.getTodoItem = async (req, res) => {
   try {
-    const todoItems = await TodoItem.find();
+    const todoItems = await TodoItem.find().sort({ createdAt: -1 });
 
     res.status(200).json({
       success: true,
@@ -84,12 +84,14 @@ exports.markCompleted = async (req, res) => {
       });
     }
 
-    todoItem.completed = true;
+    todoItem.completed = !todoItem.completed;
     await todoItem.save();
 
     res.status(200).json({
       success: true,
-      message: "Todo marked as completed.",
+      message: todoItem.completed
+        ? "Task marked as completed."
+        : "Task marked as pending.",
       data: todoItem,
     });
   } catch (error) {
