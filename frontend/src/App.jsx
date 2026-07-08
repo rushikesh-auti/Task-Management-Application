@@ -2,7 +2,7 @@ import AppName from "./components/AppName.jsx";
 import AddTodo from "./components/AddTodo.jsx";
 import TodoItems from "./components/TodoItems.jsx";
 import WelcomeMessage from "./components/WelcomeMessage.jsx";
-import "./App.css";
+import "./index.css";
 import { useEffect, useState } from "react";
 import { addItemToServer, getItemsFromServer, deleteItemFromServer } from "./services/itemService.js";
 
