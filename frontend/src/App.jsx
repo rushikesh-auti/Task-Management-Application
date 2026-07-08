@@ -61,7 +61,17 @@ function App() {
     }
   };
 
- // 
+  const handleUpdateItem = async (id, task, date) => {
+    try {
+      const updatedItem = await updateItemOnServer(id, task, date);
+
+      setTodoItems((prev) =>
+        prev.map((item) => (item.id === id ? updatedItem : item)),
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const totalTasks = todoItems.length;
 
@@ -78,15 +88,11 @@ function App() {
         <AppName />
 
         <section className="mb-8 grid grid-cols-3 gap-3 sm:gap-4">
-          <StatCard title="Total" value={totalTasks} color="bg-blue-500" />
+          <StatCard title="Total" value={totalTasks} />
 
-          <StatCard
-            title="Done"
-            value={completedTasks}
-            color="bg-emerald-500"
-          />
+          <StatCard title="Done" value={completedTasks} />
 
-          <StatCard title="Pending" value={pendingTasks} color="bg-amber-500" />
+          <StatCard title="Pending" value={pendingTasks} />
         </section>
 
         <AddTodo onNewItem={handleNewItem} />

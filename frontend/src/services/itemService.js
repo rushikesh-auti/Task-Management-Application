@@ -30,7 +30,26 @@ export const addItemToServer = async (task, date) => {
   const result = await response.json();
   return mapServerItemToLocalItem(result.data);
 };
-//
+
+export const updateItemOnServer = async (id, task, date) => {
+  const response = await fetch(`${API_URL}/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      task,
+      date,
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to update todo.");
+  }
+
+  const result = await response.json();
+  return mapServerItemToLocalItem(result.data);
+};
 
 export const markItemCompletedOnServer = async (id) => {
   const response = await fetch(`${API_URL}/${id}/completed`, {

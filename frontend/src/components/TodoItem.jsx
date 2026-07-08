@@ -14,7 +14,7 @@ function TodoItem({
   completed,
   onDeleteClick,
   onCompleteClick,
-  // onUpdateClick,
+  onUpdateClick,
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [task, setTask] = useState(todoName);
@@ -35,10 +35,8 @@ function TodoItem({
 
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-200 hover:border-indigo-200 hover:shadow-md">
-
       {isEditing ? (
         <div className="space-y-4">
-
           <input
             type="text"
             value={task}
@@ -54,7 +52,6 @@ function TodoItem({
           />
 
           <div className="flex justify-end gap-3">
-
             <button
               onClick={handleCancel}
               className="flex items-center gap-2 rounded-xl border border-slate-300 px-4 py-2 hover:bg-slate-100"
@@ -70,14 +67,11 @@ function TodoItem({
               <CheckIcon className="h-5 w-5" />
               Save
             </button>
-
           </div>
         </div>
       ) : (
         <div className="flex items-center justify-between gap-4">
-
           <div className="flex items-center gap-4">
-
             <input
               type="checkbox"
               checked={completed}
@@ -86,19 +80,15 @@ function TodoItem({
             />
 
             <div>
-
               <h3
                 className={`text-lg font-semibold ${
-                  completed
-                    ? "text-slate-400 line-through"
-                    : "text-slate-900"
+                  completed ? "text-slate-400 line-through" : "text-slate-900"
                 }`}
               >
                 {todoName}
               </h3>
 
               <div className="mt-2 flex items-center gap-2 text-sm text-slate-500">
-
                 <CalendarDaysIcon className="h-4 w-4" />
 
                 <span>
@@ -108,13 +98,11 @@ function TodoItem({
                     year: "numeric",
                   })}
                 </span>
-
               </div>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-
             <button
               onClick={() => setIsEditing(true)}
               className="rounded-lg p-2 text-indigo-600 transition hover:bg-indigo-50"
@@ -130,7 +118,6 @@ function TodoItem({
             >
               <TrashIcon className="h-5 w-5" />
             </button>
-
           </div>
         </div>
       )}

@@ -4,7 +4,7 @@ function TodoItems({
   todoItems,
   onDeleteClick,
   onCompleteClick,
-  // onUpdateClick,
+  onUpdateClick,
 }) {
   return (
     <div className="mx-auto mt-8 flex w-full max-w-5xl flex-col gap-4">

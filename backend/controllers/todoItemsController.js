@@ -72,6 +72,50 @@ exports.deleteTodoItem = async (req, res) => {
   }
 };
 
+exports.updateTodoItem = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { task, date } = req.body;
+
+    if (!task || !date) {
+      return res.status(400).json({
+        success: false,
+        message: "Task and date are required.",
+      });
+    }
+
+    const todoItem = await TodoItem.findByIdAndUpdate(
+      id,
+      {
+        task,
+        date,
+      },
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+
+    if (!todoItem) {
+      return res.status(404).json({
+        success: false,
+        message: "Todo not found.",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Todo updated successfully.",
+      data: todoItem,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
 exports.markCompleted = async (req, res) => {
   try {
     const { id } = req.params;
