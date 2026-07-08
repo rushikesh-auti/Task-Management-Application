@@ -1,19 +1,20 @@
 import TodoItem from "./TodoItem";
 
-const TodoItems = ({ todoItems, onDeleteClick }) => {
+function TodoItems({ todoItems, onDeleteClick }) {
   return (
-    <div>
+    <div className="mx-auto mt-8 flex w-full max-w-5xl flex-col gap-4">
       {todoItems.map((item) => (
         <TodoItem
           key={item.id}
           id={item.id}
-          todoDate={item.dueDate}
           todoName={item.name}
+          todoDate={item.dueDate}
+          completed={item.completed}
           onDeleteClick={onDeleteClick}
-        ></TodoItem>
+        />
       ))}
     </div>
   );
-};
+}
 
 export default TodoItems;
