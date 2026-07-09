@@ -15,8 +15,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: [
-      "http://localhost:5173", // Local development
-      "https://your-vercel-app.vercel.app", // Replace after deploying frontend
+      "http://localhost:5173",
+      "https://task-management-application-rushi.vercel.app",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
