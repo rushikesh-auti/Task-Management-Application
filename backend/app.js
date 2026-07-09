@@ -1,24 +1,35 @@
 const express = require("express");
 const connectDB = require("./config/database");
 const todoItemRouter = require("./routes/todoItemsRouter");
-const cors = require('cors');
+const cors = require("cors");
 
 const app = express();
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cors());
-
-app.use("/api/todo", todoItemRouter);
 
 // Connect Database
 connectDB();
 
+// Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173", // Local development
+      "https://your-vercel-app.vercel.app", // Replace after deploying frontend
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
+app.use("/api/todo", todoItemRouter);
+
 app.get("/", (req, res) => {
-    res.json({
-        success: true,
-        message: "Task Management API Running"
-    });
+  res.status(200).json({
+    success: true,
+    message: "Task Management API Running",
+  });
 });
 
 module.exports = app;
